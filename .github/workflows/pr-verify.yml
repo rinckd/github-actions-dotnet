@@ -19,3 +19,17 @@ jobs:
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
+
+      - name: Test with dotnet
+        run: dotnet test --configuration Release --no-build
+
+      - name: dotnet format
+        run: dotnet format -v detailed --verify-no-changes
+
+      - name: dotnet publish
+        run: dotnet publish src/GitHubActionsDotNet.Api/GithubActionsDotNet.Api.csproj --configuration Release -o artifacts
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dometrain-artifact
+          path: artifacts/
