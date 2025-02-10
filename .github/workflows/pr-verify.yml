@@ -29,7 +29,7 @@ jobs:
       - name: dotnet publish
         run: dotnet publish src/GitHubActionsDotNet.Api/GithubActionsDotNet.Api.csproj --configuration Release -o artifacts
 
-      - uses: actions/uplooad-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: dometrain-artifact
           path: artifacts/
